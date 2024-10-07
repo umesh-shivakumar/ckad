@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: random-error
+spec:
+  jobTemplate:
+    metadata:
+      name: random-error
+      labels:
+        app: random-error
+    spec:
+      completions: 3
+      parallelism: 3
+      template:
+        metadata:
+          name: random-error
+          labels:
+            app: random-error
+        spec:
+          containers:
+          - image: anoop600/random_error:1
+            name: random-error
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: 50 7 * * *

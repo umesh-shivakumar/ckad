@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    name: worker-app-pod
+    app: demo-voting-app
+  name: worker-app-pod
+spec:
+  containers:
+  - image: kodekloud/examplevotingapp_worker:v1
+    name: worker-app-pod

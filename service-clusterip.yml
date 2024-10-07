@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ClusterIP
+metadata:
+  name: myapp-clusterip
+spec:
+  type: ClusterIP
+  ports:
+    - targerPort: 80
+      port: 80
+  selector:
+    app: myapp
+    type: back-end
+
